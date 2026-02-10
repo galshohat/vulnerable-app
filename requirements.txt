@@ -1,0 +1,20 @@
+# VULN-68: Flask 2.0.1 has known vulnerabilities (CVE-2023-30861)
+flask==2.0.1
+# VULN-69: Jinja2 3.0.1 has SSTI vulnerabilities (CVE-2024-22195)
+jinja2==3.0.1
+# VULN-70: requests 2.25.0 has CVE-2023-32681
+requests==2.25.0
+# VULN-71: PyYAML 5.3 has arbitrary code execution (CVE-2020-14343)
+pyyaml==5.3
+# VULN-72: cryptography 3.4.6 has multiple CVEs
+cryptography==3.4.6
+# VULN-73: pyjwt 1.7.1 has algorithm confusion (CVE-2022-29217)
+pyjwt==1.7.1
+# VULN-74: Pillow 8.0.0 has buffer overflow (CVE-2021-25287)
+pillow==8.0.0
+# VULN-75: urllib3 1.26.4 has CRLF injection (CVE-2021-33503)
+urllib3==1.26.4
+pycryptodome==3.9.0
+flask-cors==3.0.10
+gunicorn==20.1.0
+sqlalchemy==1.4.0
