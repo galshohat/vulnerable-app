@@ -1,6 +1,5 @@
 name: InboxOps CI/CD
 
-# VULN-90: Using pull_request_target - allows code execution from forks
 on:
   pull_request_target:
     branches: [main]
@@ -11,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # VULN-91: Unpinned action versions (no SHA pinning)
       - uses: actions/checkout@v3
 
       - uses: actions/setup-python@v4
@@ -21,12 +19,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # VULN-92: Secret echoed to build logs
       - name: Deploy
         run: |
           echo "Deploying with key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           echo "DB Password: ${{ secrets.DB_PASSWORD }}"
 
-      # VULN-93: Inject script from PR title (code injection via PR metadata)
       - name: Run PR checks
         run: echo "${{ github.event.pull_request.title }}"

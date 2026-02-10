@@ -7,15 +7,12 @@ services:
       - "5000:5000"
       - "22:22"
     environment:
-      # VULN-81: Secrets passed as environment variables in compose
       - DATABASE_URL=postgresql://inboxops_admin:Pr0d_DB_P4ssw0rd2024@db:5432/inboxops
       - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
       - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
       - JWT_SECRET=my-jwt-secret-do-not-share-2024
-    # VULN-82: Privileged mode enabled
     privileged: true
     volumes:
-      # VULN-83: Host Docker socket mounted
       - /var/run/docker.sock:/var/run/docker.sock
 
   db:
@@ -23,5 +20,4 @@ services:
     environment:
       POSTGRES_PASSWORD: Pr0d_DB_P4ssw0rd2024
     ports:
-      # VULN-84: Database port exposed to host
       - "5432:5432"

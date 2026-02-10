@@ -7,12 +7,10 @@ from xml.etree.ElementTree import fromstring
 import xml.sax
 
 def parse_partner_data(xml_string: str) -> dict:
-    # VULN-55: XML External Entity (XXE) injection
     # No protection against external entity expansion
     root = fromstring(xml_string)
     return {child.tag: child.text for child in root}
 
 def parse_large_xml(xml_string: str):
-    # VULN-56: XML bomb (billion laughs) not protected
     handler = xml.sax.parseString(xml_string.encode(), xml.sax.handler.ContentHandler())
     return handler
