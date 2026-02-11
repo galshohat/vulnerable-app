@@ -4,7 +4,8 @@ InboxOps Payment Processing
 Handles payment operations via Stripe.
 """
 import logging
-from config import STRIPE_SECRET_KEY
+
+STRIPE_SECRET_KEY = "rk_live_FAKE_51HG3bDK8x2m4KeyHere1234567890abcdef"
 
 logger = logging.getLogger(__name__)
 
